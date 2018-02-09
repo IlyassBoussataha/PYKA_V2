@@ -1,0 +1,204 @@
+<div th:fragment="sidebar">
+        
+        <div class="sidebar" data-active-color="rose" data-background-color="black" th:attr="data-image=@{/assets/img/sidebar-1.jpg}" >
+            <div class="logo">
+                <a class="simple-text logo-mini">
+                    
+                </a>
+                <a  class="simple-text logo-normal">
+                    PYKA
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <div class="user">
+                    <div class="photo">
+                        <img th:src="@{'/images/'+${user.photo}}" />
+                    </div>
+                    <div class="info">
+                        <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+                            <span>
+                                <span th:text="${user.nom} + ' ' + ${user.prenom}"></span>
+                                <b class="caret"></b>
+                            </span>
+                        </a>
+                        <div class="clearfix"></div>
+                        <div class="collapse" id="collapseExample">
+                            <ul class="nav">
+                                <li id="ModifierProfil">
+                                    <a th:href="@{/Admin/ModifierProfil}">
+                                        <span class="sidebar-mini">MP</span>
+                                        <span class="sidebar-normal">Modifier Profil</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/logout}">
+                                        <span class="sidebar-mini">SD</span>
+                                        <span class="sidebar-normal">Se Déconnecter</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <ul class="nav">
+                    <li class="">
+                        <a th:href="@{/Admin/home}">
+                            <i class="material-icons">dashboard</i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="collapse" href="#Créneaumenuul">
+                            <i class="material-icons">update</i>
+                            <p>Créneaux
+                                <b class="caret"></b>
+                            </p>
+                        </a>
+                        <div class="collapse" id="Créneaumenuul">
+                            <ul class="nav" >
+                                <li id="listCréneaux" >
+                                    <a th:href="@{/Admin/ListeCreneaux}">
+                                        <span class="sidebar-mini">LC</span>
+                                        <span class="sidebar-normal">Liste Créneaux</span>
+                                    </a>
+                                </li>
+                                <li id="addCréneau" >
+                                    <a th:href="@{/Admin/AjouterCreneau}">
+                                        <span class="sidebar-mini">AC</span>
+                                        <span class="sidebar-normal">Ajouter Créneau</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a data-toggle="collapse" href="#commande">
+                            <i class="material-icons">list</i>
+                            <p>Commande
+                                <b class="caret"></b>
+                            </p>
+                        </a>
+                        <div class="collapse" id="commande">
+                            <ul class="nav">
+                                <li id="Listenouvellescommandes">
+                                    <a th:href="@{/Admin/ListeNouvellesCommandes}">
+                                        <span class="sidebar-mini">NC</span>
+                                        <span class="sidebar-normal">Liste Nouvelles Commandes</span>
+                                    </a>
+                                </li>
+                                <li id="Listecommandesassignees">
+                                    <a th:href="@{/Admin/ListeCommandesAssignee}">
+                                        <span class="sidebar-mini">CA</span>
+                                        <span class="sidebar-normal">Liste Commandes Assignées</span>
+                                    </a>
+                                </li>
+                                <li id="ListecommandesEnCours">
+                                    <a th:href="@{/Admin/ListeCommandesEnCours}">
+                                        <span class="sidebar-mini">CC</span>
+                                        <span class="sidebar-normal">Liste Commandes EnCours</span>
+                                    </a>
+                                </li>
+                                <li id="ListecommandesEffectuees">
+                                    <a th:href="@{/Admin/ListeCommandesEffectuees}">
+                                        <span class="sidebar-mini">CE</span>
+                                        <span class="sidebar-normal">Liste Commandes Effectuées</span>
+                                    </a>
+                                </li>
+                                <li id="ListecommandesAnnulees">
+                                    <a th:href="@{/Admin/ListeCommandesAnnulees}">
+                                        <span class="sidebar-mini">CA</span>
+                                        <span class="sidebar-normal">Liste Commandes Annulées</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a data-toggle="collapse" href="#Profils">
+                            <i class="material-icons">person</i>
+                            <p>Profils
+                                <b class="caret"></b>
+                            </p>
+                        </a>
+                        <div class="collapse" id="laveur">
+                            <ul class="nav">
+                                <li id="ListeValiderprofils">
+                                    <a th:href="@{/Admin/AjouterLaveur}">
+                                        <span class="sidebar-mini">AL</span>
+                                        <span class="sidebar-normal">Ajouter Laveur</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a data-toggle="collapse" href="#laveur">
+                            <i class="material-icons">person</i>
+                            <p>Laveurs
+                                <b class="caret"></b>
+                            </p>
+                        </a>
+                        <div class="collapse" id="laveur">
+                            <ul class="nav">
+                                <li id="AjouterLaveur">
+                                    <a th:href="@{/Admin/AjouterLaveur}">
+                                        <span class="sidebar-mini">AL</span>
+                                        <span class="sidebar-normal">Ajouter Laveur</span>
+                                    </a>
+                                </li>
+                                <li id="ListeLaveursActifs">
+                                    <a th:href="@{/Admin/ListeLaveursActifs}">
+                                        <span class="sidebar-mini">LA</span>
+                                        <span class="sidebar-normal">Liste Laveurs Actifs</span>
+                                    </a>
+                                </li>
+                                <li id="ListeLaveursInactifs">
+                                    <a th:href="@{/Admin/ListeLaveursInactifs}">
+                                        <span class="sidebar-mini">LI</span>
+                                        <span class="sidebar-normal">Liste Laveurs Inactifs</span>
+                                    </a>
+                                </li>
+                                <li id="ListeLaveursExclus">
+                                    <a th:href="@{/Admin/ListeLaveursExclus}">
+                                        <span class="sidebar-mini">LE</span>
+                                        <span class="sidebar-normal">Liste Laveurs Exclus</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a data-toggle="collapse" href="#messages">
+                            <i class="material-icons">message</i>
+                            <p>Messages
+                                <b class="caret"></b>
+                            </p>
+                        </a>
+                        <div class="collapse" id="messages">
+                            <ul class="nav">
+                                <li id="NouveauMessage">
+                                    <a th:href="@{/Admin/NouveauMessage}">
+                                        <span class="sidebar-mini">NM</span>
+                                        <span class="sidebar-normal">Nouveau Message</span>
+                                    </a>
+                                </li>
+                                <li id="MessagesEnvoyee">
+                                    <a th:href="@{/Admin/MessagesEnvoyee}">
+                                        <span class="sidebar-mini">ME</span>
+                                        <span class="sidebar-normal">Messages Envoye</span>
+                                    </a>
+                                </li>
+                                <li id="MessagesRecu">
+                                    <a th:href="@{/Admin/MessagesRecu}">
+                                        <span class="sidebar-mini">MR</span>
+                                        <span class="sidebar-normal">Messages Reçu</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+</div>
+	

@@ -1,0 +1,638 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png" />
+    <link rel="icon" type="image/png" href="../../assets/img/favicon.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>PYKA | Lavage auto sans eau à domicile</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <!--  Social tags      -->
+    <meta name="keywords" content="material dashboard, bootstrap material admin, bootstrap material dashboard, material design admin, material design, creative tim, html dashboard, html css dashboard, web dashboard, freebie, free bootstrap dashboard, css3 dashboard, bootstrap admin, bootstrap dashboard, frontend, responsive bootstrap dashboard, premiu material design admin">
+    <meta name="description" content="Lavage auto sans eau à domicile">
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="PYKA | Lavage auto sans eau à domicile">
+    <meta itemprop="description" content="PYKA | Lavage auto sans eau à domicile">
+    <meta itemprop="image" content="../../../../s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg">
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@creativetim">
+    <meta name="twitter:title" content="Material Dashboard PRO by Creative Tim | Premium Bootstrap Admin Template">
+    <meta name="twitter:description" content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design.">
+    <meta name="twitter:creator" content="@creativetim">
+    <meta name="twitter:image" content="../../../../s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg">
+    <!-- Open Graph data -->
+    <meta property="fb:app_id" content="655968634437471">
+    <meta property="og:title" content="PYKA | Lavage auto sans eau à domicile" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="../../../../s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg" />
+    <meta property="og:description" content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design." />
+    <meta property="og:site_name" content="Creative Tim" />
+    <!-- Bootstrap core CSS     -->
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!--  Material Dashboard CSS    -->
+    <link href="../../assets/css/material-dashboard5438.css?v=1.2.0" rel="stylesheet" />
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style type="text/css">
+        .input-group div.error{
+          position: relative;
+          left: 0rem;
+          color:#FF4081;
+          -webkit-transform: translateY(0%);
+          -ms-transform: translateY(0%);
+          -o-transform: translateY(0%);
+          transform: translateY(0%);
+        }
+   </style>
+</head>
+
+<body class="off-canvas-sidebar">
+    <nav class="navbar navbar-primary navbar-transparent navbar-absolute">
+        <div th:include="header::head"></div>
+    </nav>
+    <div class="wrapper wrapper-full-page">
+        <div class="full-page register-page" filter-color="black" data-image="../../assets/img/bg_inscription.jpg">
+            <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="card card-signup">
+                            <h2 class="card-title text-center">Inscription</h2>
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <form id="LoginValidation" enctype="multipart/form-data" class="form-horizontal" th:action="@{/inscriptionLaveur}" method="post" role="form" class="form">
+                                    
+                                        <div class="card-content all">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">perm_identity</i>
+                                                </span>
+                                                <div class="col-md-12">
+                                                    <select class="selectpicker" data-style="select-with-transition"  th:value="${profil.civilite}" name="civilite" data-size="7" required="true">
+                                                    <option value="">Civilité *</option>
+                                                    <option value="Mr">Mr</option>
+                                                    <option value="Mme">Mme</option>
+                                                </select>
+                                                    </div>
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">face</i>
+                                                </span>
+                                                <input type="text" class="form-control" name="nom" id="nom" th:value="${profil.nom}" placeholder="Nom *">
+                                            </div>
+                                            <div class="input-group all">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">face</i>
+                                                </span>
+                                                <input type="text" class="form-control" name="prenom" id="prenom" th:value="${profil.prenom}" placeholder="Prénom *" required>
+                                            </div>
+                                            <div class="input-group laveur">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">date_range</i>
+                                                </span>
+                                                <input type="text" class="form-control datepicker" name="stringdatedenaissance" id="datedenaissance" placeholder="Date De Naissance *" required>
+                                            </div>
+                                            <div class="input-group all">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">settings_phone</i>
+                                                </span>
+                                                <input type="text" class="form-control" name="telephone" id="telephone" th:value="${profil.telephone}" placeholder="Téléphone *" required>
+                                            </div>
+                                            <div class="input-group all">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">email</i>
+                                                </span>
+                                                <input type="email" class="form-control" name="email" id="email" th:value="${profil.email}" placeholder="Email *" required>
+                                            </div>
+                                            <div class="input-group all">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">location_on</i>
+                                                </span>
+                                                <input type="text" class="form-control" name="adresse" id="adresse" th:value="${profil.adresse}" placeholder="Adresse *" required>
+                                            </div>
+                                            <div class="input-group all">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">add_location</i>
+                                                </span>
+                                                <input type="number" class="form-control" name="codepostale" id="codepostale" th:value="${profil.codepostale}" placeholder="Code Postale *" required>
+                                            </div>
+                                            <div class="input-group all">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">map</i>
+                                                </span>
+                                                <input type="text" class="form-control" name="ville" id="ville" th:value="${profil.ville}" placeholder="Ville *" required>
+                                            </div>
+                                            <div class="input-group laveur">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">web</i>
+                                                </span>
+                                                <input type="text" class="form-control" name="siren" id="siren" th:value="${profil.siren}" placeholder="Siren *" required>
+                                            </div>
+                                            <div class="input-group laveur">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">local_atm</i>
+                                                </span>
+                                                <input type="text" data-rule-iban="true" class="form-control" name="rib" id="rib" th:value="${profil.rib}" placeholder="IBAN *" required>
+                                            </div>
+                                            <br />
+                                            <div class="fileinput fileinput-new text-center all" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail img-circle">
+                                                    <img src="../../assets/img/placeholder.jpg" alt="...">
+                                                </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                <div>
+                                                    <span class="btn btn-round btn-rose btn-file">
+                                                        <span class="fileinput-new">Photo</span>
+                                                        <span class="fileinput-exists">Changer</span>
+                                                        <input type="file" name="file" required />
+                                                    </span>
+                                                    <br />
+                                                    <a href="#" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Supprimer</a>
+                                                </div>
+                                            </div>
+                                            <div class="fileinput fileinput-new text-center laveur" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail img-circle">
+                                                    <img src="../../assets/img/placeholder.jpg" alt="...">
+                                                </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                <div>
+                                                    <span class="btn btn-round btn-rose btn-file">
+                                                        <span class="fileinput-new">Pièce D'identité</span>
+                                                        <span class="fileinput-exists">Changer</span>
+                                                        <input type="file" name="file" />
+                                                    </span>
+                                                    <br />
+                                                    <a href="#" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Supprimer</a>
+                                                </div>
+                                            </div>
+                                            <div class="fileinput fileinput-new text-center laveur" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail img-circle">
+                                                    <img src="../../assets/img/placeholder.jpg" alt="...">
+                                                </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                <div>
+                                                    <span class="btn btn-round btn-rose btn-file">
+                                                        <span class="fileinput-new">RC Pro</span>
+                                                        <span class="fileinput-exists">Changer</span>
+                                                        <input type="file" name="file" />
+                                                    </span>
+                                                    <br />
+                                                    <a href="#" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Supprimer</a>
+                                                </div>
+                                            </div>
+                                            <div class="fileinput fileinput-new text-center laveur" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail img-circle">
+                                                    <img src="../../assets/img/placeholder.jpg" alt="...">
+                                                </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                <div>
+                                                    <span class="btn btn-round btn-rose btn-file">
+                                                        <span class="fileinput-new">KBIS</span>
+                                                        <span class="fileinput-exists">Changer</span>
+                                                        <input type="file" name="file" />
+                                                    </span>
+                                                    <br />
+                                                    <a href="#" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Supprimer</a>
+                                                </div>
+                                            </div>
+                                            <div class="fileinput fileinput-new text-center laveur" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail img-circle">
+                                                    <img src="../../assets/img/placeholder.jpg" alt="...">
+                                                </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                <div>
+                                                    <span class="btn btn-round btn-rose btn-file">
+                                                        <span class="fileinput-new">Casier Judiciaire</span>
+                                                        <span class="fileinput-exists">Changer</span>
+                                                        <input type="file" name="file" />
+                                                    </span>
+                                                    <br />
+                                                    <a href="#" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Supprimer</a>
+                                                </div>
+                                            </div>
+                                            <div class="fileinput fileinput-new text-center laveur" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail img-circle">
+                                                    <img src="../../assets/img/placeholder.jpg" alt="...">
+                                                </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                                <div>
+                                                    <span class="btn btn-round btn-rose btn-file">
+                                                        <span class="fileinput-new">Photo RIB</span>
+                                                        <span class="fileinput-exists">Changer</span>
+                                                        <input type="file" name="file" />
+                                                    </span>
+                                                    <br />
+                                                    <a href="#" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Supprimer</a>
+                                                </div>
+                                            </div>
+                                            <div class="input-group all">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">lock_outline</i>
+                                                </span>
+                                                <input id="password" type="password" name="password" placeholder="Mot De Passe *" th:value="${login.password}" class="form-control" required/>
+                                            </div>
+                                            <div class="input-group all">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">lock_outline</i>
+                                                </span>
+                                                <input id="cpassword" type="password" name="cpassword" placeholder="Confirmer Mot De Passe *" class="form-control" required/>
+                                            </div>
+                                            <!-- If you want to add a checkbox to this form, uncomment this code -->
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="optionsCheckboxes" required> J'accepte 
+                                                    <a href="#something" data-toggle="modal" data-target="#noticeModal">les termes et conditions du service</a>.
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="footer text-center all">
+                                            <button type="submit" class="btn btn-rose btn-fill">Valider</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+            <!-- notice modal -->
+            <div class="modal fade" id="noticeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-notice">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+                            <h5 class="modal-title" id="myModalLabel">How Do You Become an Affiliate?</h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="instruction">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <strong>1. Register</strong>
+                                        <p>The first step is to create an account at
+                                            <a href="http://www.creative-tim.com/">Creative Tim</a>. You can choose a social network or go for the classic version, whatever works best for you.</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="picture">
+                                            <img src="../../assets/img/card-1.jpg" alt="Thumbnail Image" class="img-rounded img-responsive">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="instruction">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <strong>2. Apply</strong>
+                                        <p>The first step is to create an account at
+                                            <a href="http://www.creative-tim.com/">Creative Tim</a>. You can choose a social network or go for the classic version, whatever works best for you.</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="picture">
+                                            <img src="../../assets/img/card-2.jpg" alt="Thumbnail Image" class="img-rounded img-responsive">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>If you have more questions, don't hesitate to contact us or send us a tweet @creativetim. We're here to help!</p>
+                        </div>
+                        <div class="modal-footer text-center">
+                            <button type="button" class="btn btn-info btn-round" data-dismiss="modal">Sounds good!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end notice modal -->
+            
+            <footer class="footer">
+                <div th:include="footer::footer"></div>
+            </footer>
+        </div>
+    </div>
+</body>
+</body>
+<!--   Core JS Files   -->
+<script src="../../assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="../../assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../assets/js/material.min.js" type="text/javascript"></script>
+<script src="../../assets/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+<!-- Library for adding dinamically elements -->
+<script src="../../assets/js/arrive.min.js" type="text/javascript"></script>
+<!-- Forms Validations Plugin -->
+<script src="../../assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../../assets/js/messages_fr.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<!-- Promise Library for SweetAlert2 working on IE -->
+<script src="../../assets/js/es6-promise-auto.min.js"></script>
+<!--  Plugin for Date Time Picker and Full Calendar Plugin-->
+<script src="../../assets/js/moment.min.js"></script>
+<!--  Charts Plugin, full documentation here: https://gionkunz.github.io/chartist-js/ -->
+<script src="../../assets/js/chartist.min.js"></script>
+<!--  Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
+<script src="../../assets/js/jquery.bootstrap-wizard.js"></script>
+<!--  Notifications Plugin, full documentation here: http://bootstrap-notify.remabledesigns.com/    -->
+<script src="../../assets/js/bootstrap-notify.js"></script>
+<!--   Sharrre Library    -->
+<script src="../../assets/js/jquery.sharrre.js"></script>
+<!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+<script src="../../assets/js/bootstrap-datetimepicker.js"></script>
+<!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
+<script src="../../assets/js/jquery-jvectormap.js"></script>
+<!-- Sliders Plugin, full documentation here: https://refreshless.com/nouislider/ -->
+<script src="../../assets/js/nouislider.min.js"></script>
+<!--  Google Maps Plugin    -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFPQibxeDaLIUHsC6_KqDdFaUdhrbhZ3M"></script>
+<!--  Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+<script src="../../assets/js/jquery.select-bootstrap.js"></script>
+<!--  DataTables.net Plugin, full documentation here: https://datatables.net/    -->
+<script src="../../assets/js/jquery.datatables.js"></script>
+<!-- Sweet Alert 2 plugin, full documentation here: https://limonte.github.io/sweetalert2/ -->
+<script src="../../assets/js/sweetalert2.js"></script>
+<!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+<script src="../../assets/js/jasny-bootstrap.min.js"></script>
+<!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+<script src="../../assets/js/fullcalendar.min.js"></script>
+<!-- Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+<script src="../../assets/js/jquery.tagsinput.js"></script>
+<!-- Material Dashboard javascript methods -->
+<script src="../../assets/js/material-dashboard5438.js?v=1.2.0"></script>
+<!-- Material Dashboard DEMO methods, don't include it in your project! -->
+<script src="../../assets/js/demo.js"></script>
+<script type="text/javascript">
+    function setFormValidation(id) {
+        $(id).validate({
+            errorPlacement: function(error, element) {
+                $(element).closest('div').addClass('has-error');
+            }
+        });
+    }
+    
+    var siren = null;
+                $( window ).on( "load", function() {
+                $.ajax({
+			type : "GET",
+			url : "/SirenExistante",
+			success: function(result){
+                            siren = result;
+                        },
+                        error : function(xhr, status, error) {
+                                alert(xhr.responseText);
+                        }
+                        });
+                });
+    var telephone = null;
+                $( window ).on( "load", function() {
+                $.ajax({
+			type : "GET",
+			url : "/TelephoneExistant",
+			success: function(result){
+                            telephone = result;
+                        },
+                        error : function(xhr, status, error) {
+                                alert(xhr.responseText);
+                        }
+                        });
+                });
+                
+    var email = null;
+                $( window ).on( "load", function() {
+                $.ajax({
+			type : "GET",
+			url : "/EmailExistant",
+			success: function(result){
+                            email = result;
+                        },
+                        error : function(xhr, status, error) {
+                                alert(xhr.responseText);
+                        }
+                        });
+                });
+                
+    $(document).ready(function() {
+        $("#inscriptionmenu").addClass('active');
+        demo.checkFullPageBackgroundImage();
+        demo.initFormExtendedDatetimepickers();
+        $(".all").show();
+        $(".laveur").show();
+        $(".client").show();
+        setTimeout(function() {
+            // after 1000 ms we add the class animated to the login/register card
+            $('.card').removeClass('card-hidden');
+        }, 700)
+        
+        
+        $.validator.addMethod('filesize', function(value, element, param) {
+            return this.optional(element) || (element.files[0].size <= param);
+        },"La taille du fichier doit etre inferieure à 2MB");
+        
+        $.validator.addMethod('telephoneFR', function(value, element, regexp) {
+            if (regexp.constructor !== RegExp){
+                regexp = new RegExp(regexp);
+            }
+             else if (regexp.global){
+                regexp.lastIndex = 0;
+            }
+            return this.optional(element) || regexp.test(value);
+        },"Vous devez saisir un numéro de téléphone valide");
+        
+        $.validator.addMethod('telephoneEXISTE', function(value, element, regexp) {
+            var existe = true;
+            if(telephone !== null){
+                if(jQuery.inArray( value, telephone ) !== -1){
+                        existe = false;
+                   }
+            }
+            return this.optional(element) || existe;
+        }, "Ce Numéro est dèja pris");
+        
+        
+        $.validator.addMethod('emailEXISTE', function(value, element, regexp) {
+            var existe = true;
+            if(email !== null){
+                if(jQuery.inArray( value, email ) !== -1){
+                        existe = false;
+                   }
+            }
+            return this.optional(element) || existe;
+        }, "Cet Email est dèja pris");
+        
+        $.validator.addMethod('sirenFormat', function(value, element, param) {
+            var estValide;
+            if ( (value.length != 9) || (isNaN(value)) )
+              estValide = false;
+            else {
+              // Donc le SIREN est un numérique à 9 chiffres
+              var somme = 0;
+              var tmp;
+              for (var cpt = 0; cpt<value.length; cpt++) {
+                if ((cpt % 2) == 1) { // Les positions paires : 2ème, 4ème, 6ème et 8ème chiffre
+                  tmp = value.charAt(cpt) * 2; // On le multiplie par 2
+                  if (tmp > 9) 
+                    tmp -= 9;	// Si le résultat est supérieur à 9, on lui soustrait 9
+                }
+                else
+                  tmp = value.charAt(cpt);
+                somme += parseInt(tmp);
+              }
+              if ((somme % 10) == 0)
+                estValide = true;	// Si la somme est un multiple de 10 alors le SIREN est valide 
+              else
+                estValide = false;
+            }
+            return this.optional(element) || estValide;
+        }, "Format Siren Invalide");
+        
+        $.validator.addMethod('sirenEXISTE', function(value, element, regexp) {
+            var existe = true;
+            if(siren !== null){
+                if(jQuery.inArray( value, siren ) !== -1){
+                        existe = false;
+                   }
+            }
+            return this.optional(element) || existe;
+        }, "Ce Siren Existe");
+        
+        $("#LoginValidation").validate({
+        rules: {
+            nom: {
+                required: true,
+                minlength: 3
+            },
+            prenom: {
+                required: true,
+                minlength: 3
+            },
+            file: {
+                required: true,
+                extension: "jpg|png|gif", 
+                filesize: 2097152
+              },
+            telephone: {
+                required: true,
+                telephoneEXISTE: true,
+                telephoneFR: /^((\+|00)33\s?|0)[67](\s?\d{2}){4}$/
+              },
+            email: {
+                required: true,
+                emailEXISTE: true
+              },
+            siren: {
+                required: true,
+                sirenFormat: true,
+                sirenEXISTE: true
+              },
+            rib: {
+                required: true
+              },
+            password: {
+                minlength : 8
+              },
+            cpassword: {
+                minlength : 8,
+                equalTo : "#password"
+              }
+        },
+         messages: {
+            file:{ 
+                extension: "Le format du fichier doit etre JPG, PNG ou GIF"
+            },
+            iban: "Veuillez saisir un IBAN valide"
+        },
+        errorElement : 'div',
+        errorPlacement: function(error, element) {
+            $(element).closest('div').addClass('has-error');
+          var placement = $(element).data('error');
+          if (placement) {
+              $(placement).addClass('has-error');
+            $(placement).append(error);
+          } else {
+            error.insertAfter(element);
+          }
+        }
+     });
+     
+    
+                      
+     $('#codepostale').val('');
+                    $("#codepostale").autocomplete({
+                            source: function (request, response) {
+                                    $.ajax({
+                                            url: "https://api-adresse.data.gouv.fr/search/?postcode="+$("input[name='codepostale']").val(),
+                                            data: { q: request.term },
+                                            dataType: "json",
+                                            success: function (data) {
+                                                    var postcodes = [];
+                                                    response($.map(data.features, function (item) {
+                                                            if ($.inArray(item.properties.postcode, postcodes) == -1) {
+                                                                    postcodes.push(item.properties.postcode);
+                                                                    return { label: item.properties.postcode + " - " + item.properties.city, 
+                                                                                     city: item.properties.city,
+                                                                                     value: item.properties.postcode
+                                                                    };
+                                                            }
+                                                    }));
+                                                    //console.log(data.features[0].properties.city);
+                                                    if(data.features[0] !== null){ 
+                                                        $('#ville').val(data.features[0].properties.city);
+                                                    }
+                                            }
+                                    });
+                            }
+                            /*select: function(event, ui) {
+                                    $('#ville').val(ui.item.city);
+                            }*/
+                    });
+                    
+                    $('#codepostale').on('keydown',function()
+                    {
+                        var key = event.keyCode || event.charCode;
+                        if( !$(this).val() || key === 46 ) {
+                              $('#ville').val('');
+                        }
+                    });
+                    
+        $('#telephone').on("keyup", function() {
+					this.value = this.value.replace(/ /g,'');
+					var number = this.value;
+					this.value = number.replace(/\B(?=(\d{2})+(?!\d))/g, " ");
+				});
+        $("#siren").on({
+                        keydown: function(e) {
+                          if (e.which === 32)
+                            return false;
+                        },
+                        change: function() {
+                          this.value = this.value.replace(/\s/g, "");
+                        }
+                      });
+        document.getElementById('rib').addEventListener('input', function (e) {
+                                      var target = e.target, position = target.selectionEnd, length = target.value.length;
+
+                                      target.value = target.value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
+                                      target.selectionEnd = position += ((target.value.charAt(position - 1) === ' ' && target.value.charAt(length - 1) === ' ' && length !== target.value.length) ? 1 : 0);
+                                    });
+        
+        function isValidIBAN($v){ //This function check if the checksum if correct
+			$v = $v.replace(/^(.{4})(.*)$/,"$2$1"); //Move the first 4 chars from left to the right
+			$v = $v.replace(/[A-Z]/g,function($e){return $e.charCodeAt(0) - 'A'.charCodeAt(0) + 10}); //Convert A-Z to 10-25
+			var $sum = 0;
+			var $ei = 1; //First exponent 
+			for(var $i = $v.length - 1; $i >= 0; $i--){
+				$sum += $ei * parseInt($v.charAt($i),10); //multiply the digit by it's exponent 
+				$ei = ($ei * 10) % 97; //compute next base 10 exponent  in modulus 97
+			}; 
+			return $sum % 97 == 1;
+		}
+
+        //setFormValidation('#LoginValidation');
+    });
+</script>
+</html>
